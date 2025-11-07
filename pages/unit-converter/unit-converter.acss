@@ -1,0 +1,111 @@
+.container {
+  padding: 20px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e6e9f0 100%);
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+.picker {
+  border: 1px solid #e0e6ed;
+  padding: 16px;
+  margin-bottom: 24px;
+  border-radius: 8px;
+  background: white;
+  font-size: 16px;
+  color: #3c4858;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+}
+
+.picker:active {
+  background: #f8fafc;
+}
+
+.conversion-area {
+  margin-bottom: 24px;
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.input-group, .result-group {
+  display: flex;
+  margin-bottom: 16px;
+}
+
+input {
+  border: 1px solid #e0e6ed;
+  padding: 0 16px;
+  flex: 1;
+  height: 52px;
+  font-size: 16px;
+  line-height: 52px;
+  border-radius: 8px 0 0 8px;
+  background: #f8fafc;
+  color: #3c4858;
+  transition: all 0.2s ease;
+}
+
+input:focus {
+  border-color: #5e72e4;
+  box-shadow: 0 0 0 2px rgba(94, 114, 228, 0.1);
+}
+
+.unit-picker {
+  border: 1px solid #e0e6ed;
+  border-left: none;
+  padding: 0 16px;
+  width: 120px;
+  height: 52px;
+  line-height: 52px;
+  text-align: center;
+  border-radius: 0 8px 8px 0;
+  background: #f8fafc;
+  color: #3c4858;
+  transition: all 0.2s ease;
+}
+
+.unit-picker:active {
+  background: #f1f5f9;
+}
+
+.equals-sign {
+  text-align: center;
+  font-size: 28px;
+  margin: 16px 0;
+  color: #5e72e4;
+  font-weight: bold;
+}
+
+button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 16px;
+  width: 100%;
+  border-radius: 8px;
+  margin-top: 24px;
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.error {
+  color: #ff4757;
+  margin-top: 16px;
+  font-size: 14px;
+  text-align: center;
+  padding: 12px;
+  background: #ffecee;
+  border-radius: 8px;
+}

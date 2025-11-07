@@ -1,0 +1,42 @@
+.container {
+  padding: 20rpx;
+}
+
+.category-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin: 40rpx 0 20rpx;
+  color: #333;
+  padding: 0 10rpx;
+}
+
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20rpx;
+  margin-bottom: 30rpx;
+}
+
+.tool-card {
+  background-color: #fff;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.08);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 24rpx;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  padding: 20rpx 15rpx;
+  aspect-ratio: 2 / 1;
+  min-height: 100rpx;
+  word-break: break-word;
+  overflow: hidden;
+  line-height: 1.4;
+}
+
+.tool-card:active {
+  transform: scale(0.96);
+  box-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.1);
+}

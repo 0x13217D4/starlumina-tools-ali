@@ -1,0 +1,27 @@
+<view class="container">
+  <picker mode="selector" range="{{unitTypes}}" range-key="name" value="{{unitTypeIndex}}" onChange="onUnitTypeChange">
+    <view class="picker">选择单位类型: {{unitTypes[unitTypeIndex].name}}</view>
+  </picker>
+
+  <view class="conversion-area">
+    <view class="input-group">
+      <input type="number" placeholder="输入数值" value="{{inputValue}}" onInput="onInputChange"/>
+      <picker mode="selector" range="{{fromUnits}}" range-key="name" value="{{fromUnitIndex}}" onChange="onFromUnitChange">
+        <view class="unit-picker">{{fromUnits[fromUnitIndex].name}}</view>
+      </picker>
+    </view>
+
+    <view class="equals-sign">=</view>
+
+    <view class="result-group">
+      <input type="number" placeholder="结果" value="{{result}}" disabled/>
+      <picker mode="selector" range="{{toUnits}}" range-key="name" value="{{toUnitIndex}}" onChange="onToUnitChange">
+        <view class="unit-picker">{{toUnits[toUnitIndex].name}}</view>
+      </picker>
+    </view>
+  </view>
+
+  <button onTap="convert">转换</button>
+
+  <view class="error" a:if="{{error}}">{{error}}</view>
+</view>
