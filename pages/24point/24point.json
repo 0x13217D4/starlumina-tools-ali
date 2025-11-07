@@ -1,0 +1,8 @@
+{
+  "defaultTitle": "24点小游戏",
+  "titleBarTextStyle": "white",
+  "titleBarColor": "#667eea",
+  "backgroundColor": "#f8f9fa",
+  "backgroundTextStyle": "dark",
+  "enablePullDownRefresh": false
+}
