@@ -1,0 +1,67 @@
+{
+  "pages": [
+    "pages/tools/tools",
+    "pages/about/about",
+    "pages/mine/mine",
+    "pages/mine/edit/edit",
+    "pages/deviceinfo/deviceinfo",
+    "pages/id-verify/id-verify",
+    "pages/barcode/barcode",
+    "pages/qrcode/qrcode",
+    "pages/scan/scan",
+    "pages/screentest/screentest",
+    "pages/multitouch/multitouch",
+    "pages/random/random",
+    "pages/converter/converter",
+    "pages/unit-converter/unit-converter",
+    "pages/calculator/calculator",
+    "pages/mbti/mbti",
+    "pages/psychology-test/psychology-test",
+    "pages/psychology-test/bdi/bdi",
+    "pages/psychology-test/sas/sas",
+    "pages/psychology-test/scl90/scl90",
+    "pages/psychology-test/sds/sds",
+    "pages/reaction-test/reaction-test",
+    "pages/time-screen/time-screen",
+    "pages/image-compress/image-compress",
+    "pages/24point/24point",
+    "pages/sensor/sensor",
+    "pages/compass/compass",
+    "pages/privacy/privacy"
+  ],
+  "tabBar": {
+    "textColor": "#999999",
+    "selectedColor": "#007AFF",
+    "backgroundColor": "#FFFFFF",
+    "items": [
+      {
+        "pagePath": "pages/tools/tools",
+        "name": "工具",
+        "icon": "images/tools.png",
+        "activeIcon": "images/tools_active.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "name": "我的",
+        "icon": "images/mine.png",
+        "activeIcon": "images/mine_active.png"
+      }
+    ]
+  },
+  "window": {
+    "defaultTitle": "星芒集盒",
+    "titleBarColor": "#FFFFFF",
+    "backgroundColor": "#F8F8F8"
+  },
+  "permission": {
+    "scope.accelerometer": {
+      "desc": "用于获取设备加速度计数据，实现传感器功能"
+    },
+    "scope.gyroscope": {
+      "desc": "用于获取设备陀螺仪数据，实现传感器功能"
+    }
+  },
+  "useDynamicPlugins": true,
+  "enablePolyfill": true,
+  "lazyCodeLoading": "renderedComponents"
+}

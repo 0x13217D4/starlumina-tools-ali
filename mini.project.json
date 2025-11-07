@@ -1,0 +1,25 @@
+{
+  "format": 2,
+  "compileType": "mini",
+  "miniprogramRoot": "./",
+  "compileOptions": {
+    "component2": true,
+    "typescript": false,
+    "less": false,
+    "treeShaking": false,
+    "exclude": [
+      "utils/util.js",
+      "migrant.stage.json",
+      "app.wxss",
+      "images/**/*"
+    ]
+  },
+  "developOptions": {
+    "hotReload": true,
+    "parallel": true,
+    "sourcemap": true,
+    "minify": true,
+    "skipTranspile": false,
+    "lazyCompile": false
+  }
+}
