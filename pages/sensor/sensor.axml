@@ -1,0 +1,77 @@
+<view class="container">
+  <!-- 设备支持状态提示 -->
+  <view class="device-status" a:if="{{!deviceSupport}}">
+    <view class="status-warning">
+      <text class="warning-icon">⚠️</text>
+      <text class="warning-text">当前设备不支持传感器功能</text>
+    </view>
+  </view>
+
+  <!-- 控制按钮 -->
+  <view class="control-panel">
+    <button 
+      class="control-btn {{isListening ? 'stop-btn' : 'start-btn'}} {{!deviceSupport ? 'disabled' : ''}}" 
+      onTap="{{isListening ? 'stopSensorListening' : 'startSensorListening'}}"
+      disabled="{{!deviceSupport}}"
+    >
+      {{isListening ? '停止监听' : '开始监听'}}
+    </button>
+    <button class="control-btn reset-btn" onTap="resetData">重置数据</button>
+  </view>
+
+  <!-- 三维坐标轴 -->
+  <view class="axis-container">
+    <view class="axis-title">加速度计</view>
+    <view class="axis-display">
+      <view class="axis-item x-axis">
+        <view class="axis-label">X轴</view>
+        <view class="axis-value">{{xFormatted}}</view>
+      </view>
+      <view class="axis-item y-axis">
+        <view class="axis-label">Y轴</view>
+        <view class="axis-value">{{yFormatted}}</view>
+      </view>
+      <view class="axis-item z-axis">
+        <view class="axis-label">Z轴</view>
+        <view class="axis-value">{{zFormatted}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 陀螺仪 -->
+  <view class="axis-container">
+    <view class="axis-title">陀螺仪</view>
+    <view class="axis-display">
+      <view class="axis-item x-axis">
+        <view class="axis-label">X轴</view>
+        <view class="axis-value">{{gxFormatted}}</view>
+      </view>
+      <view class="axis-item y-axis">
+        <view class="axis-label">Y轴</view>
+        <view class="axis-value">{{gyFormatted}}</view>
+      </view>
+      <view class="axis-item z-axis">
+        <view class="axis-label">Z轴</view>
+        <view class="axis-value">{{gzFormatted}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 状态指示器 -->
+  <view class="status-indicator {{isListening ? 'active' : 'inactive'}}" a:if="{{deviceSupport}}">
+    <view class="status-dot"></view>
+    <text class="status-text">{{isListening ? '监听中' : '已停止'}}</text>
+  </view>
+
+  <!-- 设备信息 -->
+  <view class="device-info" a:if="{{deviceSupport}}">
+    <view class="info-item">
+      <text class="info-label">设备状态：</text>
+      <text class="info-value supported">支持传感器</text>
+    </view>
+    <view class="info-item">
+      <text class="info-label">监听时长：</text>
+      <text class="info-value">{{lastTimestamp > 0 ? ((lastTimestamp - startTime) / 1000).toFixed(1) + 's' : '0s'}}</text>
+    </view>
+  </view>
+</view>

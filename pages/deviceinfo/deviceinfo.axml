@@ -1,0 +1,153 @@
+<!-- 设备信息页面 - 主容器 -->
+<view class="container">
+  
+  <!-- 1. 基本信息卡片 -->
+  <view class="info-card">
+    <view class="info-title">基本信息</view>
+    <view 
+      class="info-item" 
+      a:for="{{basicInfo}}" 
+      a:for-item="value" 
+      a:for-index="key" 
+      a:key="key"
+    >
+      <view class="info-label">{{displayInfo[key]}}：</view>
+      <view class="info-value">{{value}}</view>
+    </view>
+  </view>
+
+  <!-- 2. 屏幕信息卡片 -->
+  <view class="info-card">
+    <view class="info-title">屏幕信息</view>
+    <view 
+      class="info-item" 
+      a:for="{{screenInfo}}" 
+      a:for-item="value" 
+      a:for-index="key" 
+      a:key="key"
+    >
+      <view class="info-label">{{displayInfo[key]}}：</view>
+      <view class="info-value">
+        <block a:if="{{key === 'safeArea' || key === 'screen'}}">
+          {{value.width}}x{{value.height}}
+        </block>
+        <block a:else>
+          {{value}}
+        </block>
+      </view>
+    </view>
+  </view>
+
+  <!-- 3. 系统设置卡片 -->
+  <view class="info-card">
+    <view class="info-title">系统设置</view>
+    <view 
+      class="info-item" 
+      a:for="{{systemInfo}}" 
+      a:for-item="value" 
+      a:for-index="key" 
+      a:key="key"
+    >
+      <view class="info-label">{{displayInfo[key]}}：</view>
+      <view class="info-value">
+        <block a:if="{{key === 'screenBrightness'}}">
+          <block a:if="{{value >= 0}}">
+            {{(value * 100).toFixed(0)}}%
+          </block>
+          <block a:else>
+            获取失败
+          </block>
+        </block>
+        <block a:else>
+          {{value}}
+        </block>
+      </view>
+    </view>
+  </view>
+
+  <!-- 4. 网络状态卡片 -->
+  <view class="info-card">
+    <view class="info-title">网络状态</view>
+    <view 
+      class="info-item" 
+      a:for="{{networkInfo}}" 
+      a:for-item="value" 
+      a:for-index="key" 
+      a:key="key"
+    >
+      <view class="info-label">{{displayInfo[key]}}：</view>
+      <view class="info-value">
+        <block a:if="{{key === 'networkAvailable'}}">
+          {{value ? '可用' : '不可用'}}
+        </block>
+        <block a:elif="{{key === 'hasSystemProxy'}}">
+          {{value ? '已启用' : '未启用'}}
+        </block>
+        <block a:elif="{{key === 'signalStrength'}}">
+          <block a:if="{{value !== undefined}}">
+            {{value}} dbm
+          </block>
+          <block a:else>
+            不支持
+          </block>
+        </block>
+        <block a:else>
+          {{value}}
+        </block>
+      </view>
+    </view>
+  </view>
+
+  <!-- 5. 权限状态卡片 -->
+  <view class="info-card">
+    <view class="info-title">权限状态</view>
+    <view 
+      class="info-item {{value === '未请求' ? 'clickable' : ''}}" 
+      a:for="{{authInfo}}" 
+      a:for-item="value" 
+      a:for-index="key" 
+      a:key="key"
+      onTap="onAuthItemTap"
+      data-key="{{key}}"
+    >
+      <view class="info-label">{{displayInfo[key]}}：</view>
+      <view class="info-value">
+        <block a:if="{{typeof value === 'boolean'}}">
+          {{value ? '已授权' : '未授权'}}
+        </block>
+        <block a:elif="{{key === 'networkType'}}">
+          {{value}}
+        </block>
+        <block a:else>
+          {{value ? '已开启' : '未开启'}}
+        </block>
+      </view>
+    </view>
+  </view>
+
+  <!-- 5. 设备功能卡片 -->
+  <view class="info-card">
+    <view class="info-title">设备功能</view>
+    <view 
+      class="info-item" 
+      a:for="{{featureInfo}}" 
+      a:for-item="value" 
+      a:for-index="key" 
+      a:key="key"
+    >
+      <view class="info-label">{{displayInfo[key]}}：</view>
+      <view class="info-value">
+        <block a:if="{{typeof value === 'boolean'}}">
+          {{value ? '是' : '否'}}
+        </block>
+        <block a:elif="{{key === 'locationReducedAccuracy'}}">
+          <block a:if="{{value}}">模糊定位</block>
+          <block a:else>精确定位</block>
+        </block>
+        <block a:else>
+          {{value}}
+        </block>
+      </view>
+    </view>
+  </view>
+</view>

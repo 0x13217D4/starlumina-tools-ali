@@ -1,0 +1,85 @@
+<view class="container">
+  <view class="scan-card">
+    <!-- 原始结果 -->
+    <view class="result-card">
+      <text class="result-title">原始内容</text>
+      <text class="result-content">{{result}}</text>
+    </view>
+
+    <!-- 解析结果 -->
+    <view class="parsed-card" a:if="{{result}}">
+      <text class="result-title">解析结果</text>
+      
+      <!-- URL类型 -->
+      <view class="parsed-content url-content" a:if="{{resultType === 'url'}}">
+        <text class="content-type">网页链接</text>
+        <text class="url-text">{{parsedResult}}</text>
+      </view>
+
+      <!-- WiFi类型 -->
+      <view class="parsed-content wifi-content" a:elif="{{resultType === 'wifi'}}">
+        <text class="content-type">WiFi配置</text>
+        <view class="wifi-info">
+          <text class="wifi-item">名称: {{parsedResult.ssid}}</text>
+          <text class="wifi-item">密码: {{parsedResult.password}}</text>
+          <text class="wifi-item">加密: {{parsedResult.encryption}}</text>
+        </view>
+      </view>
+
+      <!-- 电话类型 -->
+      <view class="parsed-content phone-content" a:elif="{{resultType === 'phone'}}">
+        <text class="content-type">电话号码</text>
+        <text class="phone-text">{{parsedResult}}</text>
+      </view>
+
+      <!-- 邮箱类型 -->
+      <view class="parsed-content email-content" a:elif="{{resultType === 'email'}}">
+        <text class="content-type">邮箱地址</text>
+        <text class="email-text">{{parsedResult}}</text>
+      </view>
+
+      <!-- 名片类型 -->
+      <view class="parsed-content vcard-content" a:elif="{{resultType === 'vcard'}}">
+        <text class="content-type">电子名片</text>
+        <view class="vcard-info">
+          <text class="vcard-item" a:if="{{parsedResult.name}}">姓名: {{parsedResult.name}}</text>
+          <text class="vcard-item" a:if="{{parsedResult.phone}}">电话: {{parsedResult.phone}}</text>
+          <text class="vcard-item" a:if="{{parsedResult.email}}">邮箱: {{parsedResult.email}}</text>
+          <text class="vcard-item" a:if="{{parsedResult.organization}}">公司: {{parsedResult.organization}}</text>
+          <text class="vcard-item" a:if="{{parsedResult.title}}">职位: {{parsedResult.title}}</text>
+        </view>
+      </view>
+
+      <!-- 地理位置类型 -->
+      <view class="parsed-content geo-content" a:elif="{{resultType === 'geo'}}">
+        <text class="content-type">地理位置</text>
+        <view class="geo-info">
+          <text class="geo-item">纬度: {{parsedResult.latitude}}</text>
+          <text class="geo-item">经度: {{parsedResult.longitude}}</text>
+          <text class="geo-item" a:if="{{parsedResult.name}}">名称: {{parsedResult.name}}</text>
+        </view>
+      </view>
+
+      <!-- JSON类型 -->
+      <view class="parsed-content json-content" a:elif="{{resultType === 'json'}}">
+        <text class="content-type">JSON数据</text>
+        <text class="json-text">{{parsedResult}}</text>
+      </view>
+
+      <!-- 文本类型 -->
+      <view class="parsed-content text-content" a:else>
+        <text class="content-type">纯文本</text>
+        <text class="text-content">{{parsedResult}}</text>
+      </view>
+    </view>
+  </view>
+  
+  <view class="button-group">
+    <button onTap="startScan" class="scan-btn" disabled="{{isScanning}}">
+      {{isScanning ? '扫描中...' : '开始扫描'}}
+    </button>
+    <button onTap="copyResult" class="copy-btn" a:if="{{result}}" disabled="{{isScanning}}">
+      复制内容
+    </button>
+  </view>
+</view>

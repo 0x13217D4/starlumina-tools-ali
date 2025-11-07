@@ -1,0 +1,18 @@
+<view class="container">
+  <view class="time-display" style="{{isLandscape ? 'margin-top:0;' : ''}}">
+    <text class="time-text {{isLandscape ? 'landscape-text' : ''}}">{{currentTime}}</text>
+    <view class="time-info">
+      <text class="time-source">{{timeSource}}</text>
+      <text class="orientation-indicator {{isLandscape ? 'landscape' : 'portrait'}}">
+        {{isLandscape ? '横屏' : '竖屏'}}
+      </text>
+      <text class="loading-indicator" a:if="{{loading}}">获取中...</text>
+    </view>
+  </view>
+  
+  <view class="control-panel {{isLandscape ? 'landscape-panel' : ''}}">
+    <button class="toggle-btn {{isLandscape ? 'landscape-btn' : ''}}" onTap="toggleTimeSource">
+      切换到{{isServerTime ? '本地时间' : '服务器时间'}}
+    </button>
+  </view>
+</view>

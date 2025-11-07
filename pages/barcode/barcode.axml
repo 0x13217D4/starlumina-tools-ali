@@ -1,0 +1,42 @@
+<view class="container">
+  <view class="input-section">
+    <input 
+      type="text" 
+      placeholder="{{barcodeType === 'ean13' ? '请输入13位数字' : '请输入条码内容'}}" 
+      onInput="onInputChange"
+      value="{{barcodeText}}"
+      maxlength="{{barcodeType === 'ean13' ? 13 : -1}}"
+    />
+    <view class="input-hint" a:if="{{barcodeType === 'ean13'}}">
+      提示：EAN13格式需要13位数字
+    </view>
+    <view class="input-hint" a:if="{{barcodeType === 'code39'}}">
+      提示：CODE39支持字母、数字和特殊字符(-.$/+%)
+    </view>
+    <picker 
+      mode="selector" 
+      range="{{barcodeTypes}}" 
+      onChange="onTypeChange"
+    >
+      <view>当前条码类型: {{barcodeType}}</view>
+    </picker>
+    <button 
+      onTap="generateBarcode" 
+      class="{{isLoading ? 'loading' : ''}}"
+      disabled="{{isLoading}}"
+    >
+      {{isLoading ? '' : '生成条码'}}
+    </button>
+  </view>
+  
+  <view class="barcode-preview" a:if="{{generatedBarcode}}">
+    <image src="{{generatedBarcode}}" mode="widthFix"></image>
+    <button 
+      onTap="saveBarcode" 
+      class="{{isSaving ? 'loading' : ''}}"
+      disabled="{{isSaving}}"
+    >
+      {{isSaving ? '' : '保存条码'}}
+    </button>
+  </view>
+</view>

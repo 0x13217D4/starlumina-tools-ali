@@ -1,0 +1,18 @@
+<view class="container">
+  <view class="control-panel">
+    <view class="input-group">
+      <text>最小值:</text>
+      <input type="number" placeholder="输入最小值" value="{{minValue}}" onInput="onMinChange"/>
+    </view>
+    <view class="input-group">
+      <text>最大值:</text>
+      <input type="number" placeholder="输入最大值" value="{{maxValue}}" onInput="onMaxChange"/>
+    </view>
+    <button onTap="generateRandom">生成随机数</button>
+  </view>
+  <view class="result-area">
+    <text class="error" a:if="{{error}}">{{error}}</text>
+    <text class="result" a:elif="{{result !== null}}">{{result}}</text>
+    <text class="hint" a:else>生成的随机数在这里显示</text>
+  </view>
+</view>
