@@ -1,0 +1,5 @@
+<view class="container">
+  <view class="time-display">
+    <text class="time-text">{{currentTime}}</text>
+  </view>
+</view>

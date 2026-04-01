@@ -1,0 +1,17 @@
+{
+  "format": 2,
+  "compileOptions": {
+    "component2": true
+  },
+  "developOptions": {
+    "parallel": true,
+    "minify": false,
+    "hotReload": true
+  },
+  "miniprogramRoot": "./",
+  "compileType": "mini",
+  "unknownConfig": {
+    "axmlStrictCheck": false,
+    "pluginResolution": {}
+  }
+}

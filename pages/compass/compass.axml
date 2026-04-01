@@ -1,0 +1,43 @@
+<view class="container {{themeClass}}">
+  <!-- 控制按钮 -->
+  <view class="control-panel">
+    <button 
+      class="control-btn {{isListening ? 'stop-btn' : 'start-btn'}}" 
+      onTap="{{isListening ? 'stopCompassListening' : 'startCompassListening'}}"
+    >
+      {{isListening ? '停止指南针' : '启动指南针'}}
+    </button>
+    <button class="control-btn calibrate-btn" onTap="calibrateCompass" disabled="{{isCalibrating}}">
+      {{isCalibrating ? '校准中...' : '校准'}}
+    </button>
+  </view>
+
+  <!-- 指南针主体 -->
+  <view class="compass-container">
+    <view class="compass-outer">
+      <view class="compass-inner" style="transform: rotate(-{{displayDirection}}deg)">
+        <!-- 方向标记 -->
+        <view class="direction-mark n-mark">N</view>
+        <view class="direction-mark e-mark">E</view>
+        <view class="direction-mark s-mark">S</view>
+        <view class="direction-mark w-mark">W</view>
+        
+        <!-- 指针 -->
+        <view class="compass-needle">
+          <view class="needle-north"></view>
+          <view class="needle-south"></view>
+        </view>
+      </view>
+      
+      <!-- 中心点 -->
+      <view class="compass-center"></view>
+    </view>
+    
+    <!-- 方向信息 -->
+    <view class="direction-display">
+      <view class="direction-degree">{{directionFormatted}}</view>
+      <view class="direction-text">{{directionText}}</view>
+    </view>
+  </view>
+
+</view>

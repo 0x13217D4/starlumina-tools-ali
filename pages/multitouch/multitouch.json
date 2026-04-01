@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "多指触控测试",
+  "navigationStyle": "default",
+  "usingComponents": {},
+  "disableScroll": true,
+  "enablePullDownRefresh": false
+}

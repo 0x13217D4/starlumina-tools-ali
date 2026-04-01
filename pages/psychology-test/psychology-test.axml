@@ -1,0 +1,12 @@
+<view class="container {{themeClass}}">
+  <view class="scales-list">
+    <view class="scale-item" a:for="{{scales}}" a:key="id" data-id="{{item.id}}" onTap="navigateToScale">
+      <view class="scale-info">
+        <text class="scale-name">{{item.name}}</text>
+        <text class="scale-desc">{{item.description}}</text>
+        <text class="scale-count">共{{item.questionsCount}}题</text>
+      </view>
+      <view class="arrow"></view>
+    </view>
+  </view>
+</view>

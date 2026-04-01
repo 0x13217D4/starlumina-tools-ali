@@ -1,0 +1,25 @@
+<view class="container {{themeClass}}">
+  <view class="info-panel">
+    <view class="info-item">
+      <text class="label">当前触点数</text>
+      <text class="value">{{currentPoints}}</text>
+    </view>
+    <view class="info-item">
+      <text class="label">最大触点数</text>
+      <text class="value">{{maxPoints}}</text>
+    </view>
+  </view>
+  <view 
+    class="touch-area" 
+    onTouchStart="handleTouchStart"
+    onTouchMove="handleTouchMove"
+    onTouchEnd="handleTouchEnd"
+  >
+    <view class="touch-point" a:for="{{touchPoints}}" a:key="id" style="left: {{item.x}}px; top: {{item.y}}px;">
+      <text>{{item.id + 1}}</text>
+    </view>
+    <view class="hint" a:if="{{touchPoints.length === 0}}">
+      <text>请在此区域触摸屏幕</text>
+    </view>
+  </view>
+</view>

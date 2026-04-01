@@ -1,0 +1,77 @@
+<view class="container {{themeClass}}" catchTouchMove="preventTouchMove">
+  <!-- 绘图画布 -->
+  <canvas 
+    canvas-id="whiteboardCanvas" 
+    id="whiteboardCanvas"
+    class="canvas"
+    style="width: {{canvasWidth}}px; height: {{canvasHeight}}px;"
+    width="{{canvasWidth * dpr}}"
+    height="{{canvasHeight * dpr}}"
+    disable-scroll="true"
+    catchTouchStart="onTouchStart"
+    catchTouchMove="onTouchMove"
+    catchTouchEnd="onTouchEnd"
+    catchTouchCancel="onTouchCancel"
+  ></canvas>
+
+  <!-- 缩放控制按钮 -->
+  <view class="zoom-controls">
+    <view class="zoom-btn" onTap="zoomOut">
+      <text>-</text>
+    </view>
+    <view class="zoom-info" onTap="resetView">
+      <text>{{scalePercent}}%</text>
+    </view>
+    <view class="zoom-btn" onTap="zoomIn">
+      <text>+</text>
+    </view>
+  </view>
+
+  <!-- 工具栏 -->
+  <view class="toolbar">
+    <view class="tool-item {{currentTool === 'select' ? 'active' : ''}}" onTap="switchTool" data-tool="select">
+      <text class="icon">↖</text>
+      <text>选择</text>
+    </view>
+    <view class="tool-item {{currentTool === 'pen' ? 'active' : ''}}" onTap="switchTool" data-tool="pen">
+      <text class="icon">✏</text>
+      <text>笔</text>
+    </view>
+    <view class="tool-item {{currentTool === 'eraser' ? 'active' : ''}}" onTap="switchTool" data-tool="eraser">
+      <text class="icon">🧹</text>
+      <text>板擦</text>
+    </view>
+  </view>
+
+  <!-- 笔工具选项 -->
+  <view class="tool-options" a:if="{{showPenPanel}}">
+    <view class="color-picker">
+      <text>颜色:</text>
+      <view class="colors">
+        <view 
+          class="color-option {{selectedColor === item ? 'selected' : ''}}" 
+          a:for="{{colors}}" 
+          a:key="index" 
+          style="background-color: {{item}};"
+          onTap="selectColor"
+          data-color="{{item}}"
+        ></view>
+      </view>
+    </view>
+    <view class="brush-size">
+      <text>粗细: {{brushSize}}</text>
+      <slider 
+        min="1" 
+        max="50" 
+        value="{{brushSize}}" 
+        onChange="onBrushSizeChange" 
+        show-value="false"
+      ></slider>
+    </view>
+  </view>
+
+  <!-- 清除按钮 -->
+  <view class="clear-btn-container" a:if="{{showEraserPanel}}">
+    <button class="clear-btn" onTap="clearBoard">一键清除</button>
+  </view>
+</view>

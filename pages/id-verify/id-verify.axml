@@ -1,0 +1,41 @@
+<view class="container {{themeClass}}">
+  <view class="card">
+    <view class="input-group">
+      <textarea placeholder="请输入身份证号码，每行一个" auto-height onInput="onInput" onConfirm="onConfirm"></textarea>
+    </view>
+
+    <view class="button-group">
+      <button onTap="validateIDs">验证</button>
+      <button onTap="clearResults" type="default">清空</button>
+    </view>
+
+    <view class="error" a:if="{{error}}">{{error}}</view>
+  </view>
+
+  <view class="history" a:if="{{results && results.length > 0}}">
+    <view class="history-title">验证结果</view>
+    <view class="history-list">
+      <view class="history-item" a:for="{{results}}" a:key="id">
+        <view class="id-info">
+          <text class="masked-id">{{maskID(item.id)}}</text>
+          <text class="status {{item.isValid ? 'valid' : 'invalid'}}">
+            {{item.isValid ? '✓ 有效' : '✗ 无效'}}
+          </text>
+        </view>
+        <view class="detail-info">
+          <text class="detail-item">📍 {{item.area || '未知地区'}}</text>
+          <text class="detail-item">🎂 {{item.birthday || '-'}}</text>
+          <text class="detail-item">👤 {{item.gender || '-'}}</text>
+        </view>
+        <view a:if="{{item.message}}" class="error-message">{{item.message}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="loading" a:if="{{loading}}">正在加载行政区划数据...</view>
+  
+  <view class="privacy-notice">
+    <view class="notice-icon">🔒</view>
+    <view class="notice-text">温馨提示：该小程序所有应用都允许在设备本地处理数据，不会上传至服务器，请放心使用</view>
+  </view>
+</view>

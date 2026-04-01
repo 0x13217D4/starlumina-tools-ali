@@ -1,0 +1,53 @@
+<view class="container {{themeClass}}">
+  <view class="card">
+    <view class="game-header">
+      <text class="game-title">24点游戏</text>
+      <text class="score">得分: {{score}}</text>
+    </view>
+
+    <view class="cards-display">
+      <view class="card-item" a:for="{{cards}}" a:key="index">
+        <text class="card-number">{{item}}</text>
+      </view>
+    </view>
+
+    <view class="expression-display">
+      <text class="expression-text">{{expression || '请输入表达式'}}</text>
+    </view>
+
+    <view class="input-group">
+      <text class="group-title">数字</text>
+      <view class="number-buttons">
+        <button class="btn number" a:for="{{cards}}" a:key="index" 
+                data-value="{{item}}" data-index="{{index}}" onTap="onNumberTap">{{item}}</button>
+      </view>
+    </view>
+
+    <view class="input-group">
+      <text class="group-title">运算符</text>
+      <view class="operator-buttons">
+        <button class="btn operator" data-value="+" onTap="onOperatorTap">+</button>
+        <button class="btn operator" data-value="-" onTap="onOperatorTap">-</button>
+        <button class="btn operator" data-value="*" onTap="onOperatorTap">×</button>
+        <button class="btn operator" data-value="/" onTap="onOperatorTap">÷</button>
+      </view>
+    </view>
+
+    <view class="input-group">
+      <text class="group-title">括号</text>
+      <view class="bracket-buttons">
+        <button class="btn bracket" data-value="(" onTap="onBracketTap">(</button>
+        <button class="btn bracket" data-value=")" onTap="onBracketTap">)</button>
+      </view>
+    </view>
+
+    <view class="button-group">
+      <button onTap="onClear">清除</button>
+      <button onTap="onDelete">删除</button>
+      <button onTap="onSubmit" class="submit-btn">提交</button>
+      <button onTap="onNewGame" class="new-game-btn">新游戏</button>
+    </view>
+
+    <view class="error" a:if="{{message}}">{{message}}</view>
+  </view>
+</view>

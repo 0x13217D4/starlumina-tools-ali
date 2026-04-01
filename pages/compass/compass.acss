@@ -1,0 +1,224 @@
+.container {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.container.dark {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
+
+/* 控制面板 */
+.control-panel {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.control-btn {
+  flex: 1;
+  height: 48px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: white;
+}
+
+.start-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.stop-btn {
+  background: linear-gradient(135deg, #FF6B6B, #ff8787);
+}
+
+.calibrate-btn {
+  background: linear-gradient(135deg, #4A90E2, #6BA5E8);
+}
+
+.control-btn:active {
+  transform: translateY(2px);
+}
+
+/* 指南针容器 */
+.compass-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+
+.container.dark .compass-container {
+  background: #2d2d2d;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.compass-outer {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ffffff, #f0f0f0);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border: 4px solid #333;
+}
+
+.container.dark .compass-outer {
+  background: linear-gradient(135deg, #3a3a3a, #2d2d2d);
+  border-color: #e0e0e0;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.compass-inner {
+  width: 256px;
+  height: 256px;
+  border-radius: 50%;
+  position: relative;
+  background: radial-gradient(circle, #ffffff 0%, #f8f8f8 100%);
+}
+
+.container.dark .compass-inner {
+  background: radial-gradient(circle, #3a3a3a 0%, #2d2d2d 100%);
+}
+
+/* 方向标记 */
+.direction-mark {
+  position: absolute;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.container.dark .direction-mark {
+  color: #e0e0e0;
+}
+
+.n-mark {
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #FF0000;
+  font-size: 24px;
+}
+
+.e-mark {
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.s-mark {
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.w-mark {
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* 指针 */
+.compass-needle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.needle-north {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 100px solid #FF0000;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.needle-south {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 100px solid #333;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.container.dark .needle-south {
+  border-top-color: #e0e0e0;
+}
+
+.compass-center {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #333;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.container.dark .compass-center {
+  background: #e0e0e0;
+}
+
+.direction-display {
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.direction-degree {
+  font-size: 48px;
+  font-weight: bold;
+  color: #3c4858;
+  font-family: 'Courier New', monospace;
+}
+
+.container.dark .direction-degree {
+  color: #e0e0e0;
+}
+
+.direction-text {
+  font-size: 24px;
+  color: #606266;
+  margin-top: 8px;
+  font-weight: 600;
+}
+
+.container.dark .direction-text {
+  color: #ccc;
+}

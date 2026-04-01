@@ -1,0 +1,45 @@
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.time-display {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.time-text {
+  color: #0F0;
+  font-size: 10vw;
+  font-family: 'Courier New', monospace;
+  text-shadow: 0 0 20px #0F0, 0 0 40px #0F0;
+  font-weight: bold;
+  letter-spacing: 0.2vw;
+  transition: font-size 0.3s ease;
+  white-space: nowrap;
+}
+
+/* 横屏样式 - 字体更大 */
+@media screen and (orientation: landscape) {
+  .time-text {
+    font-size: 8vw;
+    letter-spacing: 0.1vw;
+  }
+}
+
+/* 竖屏样式 */
+@media screen and (orientation: portrait) {
+  .time-text {
+    font-size: 10vw;
+    letter-spacing: 0.2vw;
+  }
+}

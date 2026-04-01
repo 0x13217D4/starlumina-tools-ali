@@ -1,0 +1,170 @@
+.container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #ffffff;
+}
+
+.container.dark {
+  background-color: #1a1a1a;
+}
+
+.header {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.container.dark .title {
+  color: #e0e0e0;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #666;
+}
+
+.container.dark .subtitle {
+  color: #aaa;
+}
+
+.upload-area {
+  height: 300px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px dashed #4a90e2;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  background-color: #f8f8f8;
+  overflow: hidden;
+}
+
+.container.dark .upload-area {
+  background-color: #2d2d2d;
+  border-color: #09e765;
+}
+
+.upload-hint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #999;
+}
+
+.preview-image {
+  width: 100%;
+  height: 100%;
+  min-height: 200px;
+  background-color: #f8f8f8;
+}
+
+.info-section {
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.container.dark .info-section {
+  background-color: #3a3a3a;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.info-label {
+  color: #666;
+}
+
+.container.dark .info-label {
+  color: #ccc;
+}
+
+.info-value {
+  color: #333;
+  font-weight: 500;
+}
+
+.container.dark .info-value {
+  color: #e0e0e0;
+}
+
+.controls {
+  margin-bottom: 20px;
+}
+
+.control-group {
+  margin-bottom: 20px;
+}
+
+.control-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.container.dark .control-label {
+  color: #e0e0e0;
+}
+
+.radio-label, .switch-label {
+  display: flex;
+  align-items: center;
+  color: #333;
+  margin-right: 20px;
+}
+
+.container.dark .radio-label,
+.container.dark .switch-label {
+  color: #e0e0e0;
+}
+
+.progress-container {
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+}
+
+progress {
+  margin-bottom: 15px;
+}
+
+.action-btn {
+  background-color: #4a90e2;
+  border-radius: 8px;
+  margin-top: 10px;
+  color: white;
+}
+
+.container.dark .action-btn {
+  background-color: #09e765;
+  color: #000;
+}
+
+.result-section {
+  background-color: #f0f7ff;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #4a90e2;
+}
+
+.container.dark .result-section {
+  background-color: #2a3a4a;
+  border-color: #09e765;
+}

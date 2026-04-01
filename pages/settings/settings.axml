@@ -1,0 +1,67 @@
+<view class="page-wrapper {{themeClass}}">
+  <view class="container">
+    <view class="settings-list">
+      
+      <!-- 通用设置 -->
+      <view class="settings-group">
+        <view class="group-title">通用设置</view>
+        <view class="settings-item" onTap="toggleTheme">
+          <view class="item-left">
+            <text class="item-icon">🌙</text>
+            <text class="item-text">显示模式</text>
+          </view>
+          <text class="item-value">{{themeModeText}}</text>
+          <view class="arrow"></view>
+        </view>
+        <view class="settings-item" onTap="clearCache">
+          <view class="item-left">
+            <text class="item-icon">🗑️</text>
+            <text class="item-text">清除缓存</text>
+          </view>
+          <view class="arrow"></view>
+        </view>
+        <view class="settings-item" onTap="about">
+          <view class="item-left">
+            <text class="item-icon">ℹ️</text>
+            <text class="item-text">关于小程序</text>
+          </view>
+          <view class="arrow"></view>
+        </view>
+      </view>
+
+      <!-- 其他 -->
+      <view class="settings-group">
+        <view class="group-title">其他</view>
+        <view class="settings-item" onTap="showCollectGuide">
+          <view class="item-left">
+            <text class="item-icon">{{isCollected ? '❤️' : '🤍'}}</text>
+            <text class="item-text">收藏小程序</text>
+          </view>
+          <text class="item-value" a:if="{{isCollected}}">已收藏</text>
+          <view class="arrow"></view>
+        </view>
+        <view class="settings-item" onTap="feedback">
+          <view class="item-left">
+            <text class="item-icon">💬</text>
+            <text class="item-text">意见反馈</text>
+          </view>
+          <view class="arrow"></view>
+        </view>
+        <view class="settings-item" onTap="checkUpdate">
+          <view class="item-left">
+            <text class="item-icon">🔄</text>
+            <text class="item-text">检查更新</text>
+          </view>
+          <view class="arrow"></view>
+        </view>
+      </view>
+
+    </view>
+
+    <!-- 退出登录按钮 -->
+    <view class="logout-btn-container">
+      <button class="logout-btn" onTap="logout">退出登录</button>
+    </view>
+
+  </view>
+</view>

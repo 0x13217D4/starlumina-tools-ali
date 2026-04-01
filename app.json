@@ -1,0 +1,63 @@
+{
+  "pages": [
+    "pages/tools/tools",
+    "pages/about/about",
+    "pages/login/login",
+    "pages/settings/settings",
+    "pages/mine/mine",
+    "pages/mine/edit/edit",
+    "pages/deviceinfo/deviceinfo",
+    "pages/id-verify/id-verify",
+    "pages/barcode/barcode",
+    "pages/qrcode/qrcode",
+    "pages/scan/scan",
+    "pages/screentest/screentest",
+    "pages/multitouch/multitouch",
+    "pages/random/random",
+    "pages/converter/converter",
+    "pages/unit-converter/unit-converter",
+    "pages/mbti/mbti",
+    "pages/psychology-test/psychology-test",
+    "pages/psychology-test/bdi/bdi",
+    "pages/psychology-test/sas/sas",
+    "pages/psychology-test/scl90/scl90",
+    "pages/psychology-test/sds/sds",
+    "pages/reaction-test/reaction-test",
+    "pages/time-screen/time-screen",
+    "pages/image-compress/image-compress",
+    "pages/whiteboard/whiteboard",
+    "pages/speedtest/speedtest",
+    "pages/24point/24point",
+    "pages/gomoku/gomoku",
+    "pages/zjh/zjh",
+    "pages/sensor/sensor",
+    "pages/compass/compass"
+  ],
+  "window": {
+    "defaultTitle": "星芒集盒",
+    "titleBarColor": "#ffffff",
+    "backgroundColor": "#f5f5f5",
+    "pullRefresh": false,
+    "allowsBounceVertical": true
+  },
+  "tabBar": {
+    "textColor": "#666666",
+    "selectedColor": "#07C160",
+    "backgroundColor": "#ffffff",
+    "items": [
+      {
+        "pagePath": "pages/tools/tools",
+        "name": "工具",
+        "icon": "images/tools.png",
+        "activeIcon": "images/tools_active.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "name": "我的",
+        "icon": "images/mine.png",
+        "activeIcon": "images/mine_active.png"
+      }
+    ]
+  },
+  "enablePolyfill": true
+}

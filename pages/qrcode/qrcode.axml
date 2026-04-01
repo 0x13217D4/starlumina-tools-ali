@@ -1,0 +1,160 @@
+<view class="container {{themeClass}}">
+  <!-- 主卡片 -->
+  <view class="card">
+    <!-- 模式切换 -->
+    <view class="mode-switch">
+      <view 
+        class="mode-tab {{mode === 'text' ? 'active' : ''}}" 
+        onTap="switchMode" 
+        data-mode="text"
+      >
+        <text>文本二维码</text>
+      </view>
+      <view 
+        class="mode-tab {{mode === 'wifi' ? 'active' : ''}}" 
+        onTap="switchMode" 
+        data-mode="wifi"
+      >
+        <text>Wi-Fi二维码</text>
+      </view>
+    </view>
+
+    <!-- 内容区域 -->
+    <view class="card-content">
+      <block a:if="{{mode === 'text'}}">
+        <textarea 
+          placeholder="请输入二维码内容" 
+          onInput="onInputChange"
+          value="{{qrText}}"
+          auto-height
+          class="qr-input"
+        ></textarea>
+      </block>
+
+      <block a:if="{{mode === 'wifi'}}">
+        <view class="wifi-form">
+          <view class="form-item">
+            <text class="label">WIFI名称</text>
+            <input 
+              type="text" 
+              placeholder="输入WIFI名称(SSID)" 
+              onInput="onWifiInput" 
+              data-field="ssid"
+              value="{{wifiConfig.ssid}}"
+            />
+          </view>
+          <view class="form-item" a:if="{{wifiConfig.encryption !== 'none'}}">
+            <text class="label">密码</text>
+            <input 
+              type="text" 
+              placeholder="输入WIFI密码" 
+              onInput="onWifiInput" 
+              data-field="password"
+              value="{{wifiConfig.password}}"
+            />
+          </view>
+          <view class="form-item">
+            <text class="label">加密类型</text>
+            <picker 
+              mode="selector" 
+              range="{{['WPA/WPA2', 'WEP', '无加密']}}" 
+              onChange="onEncryptionChange"
+            >
+              <view>{{wifiConfig.encryption === 'none' ? '无加密' : wifiConfig.encryption}}</view>
+            </picker>
+          </view>
+        </view>
+      </block>
+      
+      <!-- 高级设置开关 -->
+      <view class="advanced-toggle" onTap="toggleAdvanced">
+        <text>{{showAdvanced ? '收起高级设置' : '展开高级设置'}}</text>
+        <text class="toggle-icon">{{showAdvanced ? '▲' : '▼'}}</text>
+      </view>
+      
+      <!-- 高级设置区域 -->
+      <view class="advanced-settings" a:if="{{showAdvanced}}">
+        <view class="setting-item">
+          <text class="setting-label">尺寸 (px)</text>
+          <input 
+            type="number" 
+            value="{{advancedSettings.width}}" 
+            onInput="onWidthChange" 
+            class="setting-input"
+            placeholder="100-500"
+          />
+        </view>
+        
+        <view class="setting-item">
+          <text class="setting-label">二维码颜色</text>
+          <view class="color-picker">
+            <view class="color-preview" style="background: {{advancedSettings.codeColor}}"></view>
+            <input 
+              type="text" 
+              value="{{advancedSettings.codeColor}}" 
+              onInput="onCodeColorChange" 
+              placeholder="#000000"
+            />
+          </view>
+        </view>
+        
+        <view class="setting-item">
+          <text class="setting-label">背景颜色</text>
+          <view class="color-picker">
+            <view class="color-preview" style="background: {{advancedSettings.bgColor}}"></view>
+            <input 
+              type="text" 
+              value="{{advancedSettings.bgColor}}" 
+              onInput="onBgColorChange" 
+              placeholder="#ffffff"
+            />
+          </view>
+        </view>
+        
+        <view class="setting-item">
+          <text class="setting-label">纠错等级</text>
+          <picker 
+            mode="selector" 
+            range="{{['低(7%)', '中(15%)', '高(25%)', '最高(30%)']}}" 
+            onChange="onCorrectLevelChange"
+            value="{{advancedSettings.correctLevel === 'L' ? 0 : advancedSettings.correctLevel === 'M' ? 1 : advancedSettings.correctLevel === 'Q' ? 2 : 3}}"
+          >
+            <view class="picker-display">
+              {{advancedSettings.correctLevel === 'H' ? '最高(30%)' : 
+                advancedSettings.correctLevel === 'Q' ? '高(25%)' : 
+                advancedSettings.correctLevel === 'M' ? '中(15%)' : '低(7%)'}}
+            </view>
+          </picker>
+        </view>
+        
+        <view class="setting-item">
+          <text class="setting-label">无边距</text>
+          <switch 
+            checked="{{advancedSettings.noPadding}}" 
+            onChange="toggleNoPadding" 
+            color="#07C160"
+          />
+        </view>
+      </view>
+      
+      <button 
+        onTap="handleGenerateQRCode" 
+        class="{{isLoading ? 'loading' : ''}}"
+        disabled="{{isLoading}}"
+      >
+        {{isLoading ? '' : '生成二维码'}}
+      </button>
+    </view>
+  </view>
+  
+  <view class="qr-preview" a:if="{{generatedQRCode}}">
+    <image src="{{generatedQRCode}}" mode="widthFix"></image>
+    <button 
+      onTap="saveQRCode" 
+      class="{{isSaving ? 'loading' : ''}}"
+      disabled="{{isSaving}}"
+    >
+      {{isSaving ? '' : '保存二维码'}}
+    </button>
+  </view>
+</view>

@@ -1,0 +1,37 @@
+<view class="page-wrapper {{themeClass}}">
+  <view class="container">
+    <!-- 用户信息区域 -->
+    <view class="user-info" onTap="onUserAreaTap">
+      <image class="avatar" src="{{isLoggedIn ? (userInfo.avatarUrl || defaultAvatarUrl) : defaultAvatarUrl}}" mode="aspectFill"></image>
+      <view class="user-details">
+        <!-- 未登录状态 -->
+        <block a:if="{{!isLoggedIn}}">
+          <text class="nickname not-logged">点击登录</text>
+          <text class="login-hint">登录后享受更多功能</text>
+        </block>
+        <!-- 已登录状态 -->
+        <block a:else>
+          <text class="nickname">{{userInfo.nickName || '支付宝用户'}}</text>
+          <view class="user-meta">
+            <text>{{genderText[userInfo.gender] || '未设置'}}</text>
+            <text>{{userInfo.birthday || '未设置'}}</text>
+          </view>
+        </block>
+      </view>
+    </view>
+
+    <view class="content-grid">
+
+      <view class="function-list">
+        <view class="function-item" onTap="aboutApp">
+          <text>ℹ️关于此小程序</text>
+          <view class="arrow"></view>
+        </view>
+        <view class="function-item" onTap="goToSettings">
+          <text>⚙️设置</text>
+          <view class="arrow"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

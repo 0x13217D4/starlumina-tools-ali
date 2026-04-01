@@ -1,0 +1,149 @@
+.container {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--page-bg);
+  min-height: 100vh;
+}
+
+.input-section {
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 30px;
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-color);
+}
+
+.input-section input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: var(--content-bg);
+  color: var(--text-primary);
+  box-sizing: border-box;
+  height: 50px;
+  line-height: 26px;
+}
+
+.input-hint {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  margin: -10px 0 15px 0;
+  padding: 0 5px;
+}
+
+.type-selector {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.type-selector text {
+  font-size: 16px;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.picker-display {
+  flex: 1;
+  padding: 15px 15px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  text-align: center;
+  height: 50px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 尺寸设置 */
+.size-settings {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.size-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.size-label {
+  font-size: 14px;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.size-input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--content-bg);
+  color: var(--text-primary);
+  font-size: 14px;
+  text-align: center;
+  min-width: 60px;
+}
+
+.size-unit {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+button {
+  background-color: #07C160;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 0;
+  font-size: 16px;
+  width: 100%;
+  margin-top: 10px;
+  box-sizing: border-box;
+}
+
+.container.dark button {
+  background-color: #09e765;
+  color: #000;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+.loading {
+  position: relative;
+  pointer-events: none;
+}
+
+.barcode-preview {
+  margin-top: 30px;
+  text-align: center;
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: var(--shadow-color);
+  width: 100%;
+  max-width: 500px;
+}
+
+.barcode-preview image {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--border-color);
+  margin-bottom: 20px;
+  border-radius: 8px;
+}

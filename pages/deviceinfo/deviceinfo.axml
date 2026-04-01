@@ -1,0 +1,63 @@
+<!-- 设备信息页面 - 主容器 -->
+<view class="container {{themeClass}}">
+  
+  <!-- 1. 基本信息卡片 -->
+  <view class="info-card">
+    <view class="info-title">基本信息</view>
+    <view 
+      class="info-item" 
+      a:for="{{basicInfo}}" 
+      a:for-item="value" 
+      a:for-index="key" 
+      a:key="key"
+    >
+      <view class="info-label">{{displayInfo[key]}}：</view>
+      <view class="info-value {{value === '获取中...' ? 'loading' : ''}}">{{value}}</view>
+    </view>
+  </view>
+
+  <!-- 2. 屏幕信息卡片 -->
+  <view class="info-card">
+    <view class="info-title">屏幕信息</view>
+    <view 
+      class="info-item" 
+      a:for="{{screenInfo}}" 
+      a:for-item="value" 
+      a:for-index="key" 
+      a:key="key"
+    >
+      <view class="info-label">{{displayInfo[key]}}：</view>
+      <view class="info-value {{value === '获取中...' ? 'loading' : ''}}">{{value}}</view>
+    </view>
+  </view>
+
+  <!-- 3. 性能信息卡片 -->
+  <view class="info-card">
+    <view class="info-title">性能信息</view>
+    <view 
+      class="info-item" 
+      a:for="{{performanceInfo}}" 
+      a:for-item="value" 
+      a:for-index="key" 
+      a:key="key"
+    >
+      <view class="info-label">{{displayInfo[key]}}：</view>
+      <view class="info-value {{value === '获取中...' ? 'loading' : ''}}">{{value}}</view>
+    </view>
+  </view>
+
+  <!-- 4. 电量信息卡片 -->
+  <view class="info-card">
+    <view class="info-title">电量信息</view>
+    <view 
+      class="info-item" 
+      a:for="{{batteryInfo}}" 
+      a:for-item="value" 
+      a:for-index="key" 
+      a:key="key"
+    >
+      <view class="info-label">{{displayInfo[key]}}：</view>
+      <view class="info-value {{value === '获取中...' ? 'loading' : ''}}">{{value}}</view>
+    </view>
+  </view>
+</view>

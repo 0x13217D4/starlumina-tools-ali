@@ -1,0 +1,72 @@
+<view class="container {{themeClass}}">
+  <!-- 测试进度 -->
+  <view class="progress">
+    <text>问题 {{currentQuestion + 1}}/{{questions.length}}</text>
+  </view>
+  
+  <!-- 当前问题 -->
+  <view class="question" a:if="{{!result}}">
+    <text>{{questions[currentQuestion].text}}</text>
+  </view>
+  
+  <!-- 选项列表 -->
+  <view class="options" a:if="{{!result}}">
+    <block a:for="{{options}}" a:key="score">
+      <button onTap="selectOption" data-index="{{index}}">{{item.text}}</button>
+    </block>
+  </view>
+  
+  <!-- 测试结果 -->
+  <view class="result" a:if="{{result}}">
+    <view class="result-header">
+      <text class="result-title">测试结果</text>
+    </view>
+    
+    <!-- 总体指标 -->
+    <view class="total-metrics">
+      <view class="metric">
+        <text class="metric-label">总分:</text>
+        <text class="metric-value">{{totalScore}}</text>
+      </view>
+      <view class="metric">
+        <text class="metric-label">总症状指数:</text>
+        <text class="metric-value">{{totalSymptomIndex}}</text>
+      </view>
+      <view class="metric">
+        <text class="metric-label">阳性项目数:</text>
+        <text class="metric-value">{{positiveSymptomCount}}</text>
+      </view>
+      <view class="metric">
+        <text class="metric-label">阳性症状总分:</text>
+        <text class="metric-value">{{positiveSymptomTotal}}</text>
+      </view>
+      <view class="metric">
+        <text class="metric-label">阳性症状均分:</text>
+        <text class="metric-value">{{positiveSymptomDistressLevel}}</text>
+      </view>
+    </view>
+    
+    <!-- 各维度得分 -->
+    <view class="dimensions">
+      <text class="section-title">各维度得分</text>
+      <block a:for="{{dimensions}}" a:key="id">
+        <view class="dimension">
+          <view class="dimension-content">
+            <text class="dim-name">{{item.name}}</text>
+            <text class="dim-score">{{dimensionScores[item.id]}}</text>
+          </view>
+          <view class="dim-description">
+            <text>{{dimensionDescriptions[item.id]}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+    
+    <!-- 总体描述 -->
+    <view class="description">
+      <text>{{result.overallDescription}}</text>
+    </view>
+    
+    <button class="restart-btn" onTap="restartTest">重新测试</button>
+  </view>
+</view>
